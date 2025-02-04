@@ -19,7 +19,7 @@ export const SchoolCard = ({ name, domains, newOnboards, febActivations }: Schoo
       <div className="flex flex-row justify-between items-center">
         <h3 className="text-lg font-semibold mb-2 md:mb-0 whitespace-nowrap">{name}</h3>
         <div className="flex items-center">
-          <div className="stats-badge text-3xl font-bold text-center">
+          <div className="stats-badge text-4xl font-bold text-center mx-4">
             Feb Activations: {febActivations}
           </div>
         </div>
