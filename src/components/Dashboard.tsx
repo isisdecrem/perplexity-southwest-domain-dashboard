@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 interface School {
   domains: string[];
-  new_onboards: number;
+  // new_onboards: number; // Removed since we're no longer displaying onboards
   feb_activations: number;
 }
 
@@ -56,7 +56,6 @@ export const Dashboard = ({ data }: DashboardProps) => {
             key={name}
             name={name}
             domains={school.domains}
-            newOnboards={school.new_onboards}
             febActivations={school.feb_activations}
           />
         ))}
