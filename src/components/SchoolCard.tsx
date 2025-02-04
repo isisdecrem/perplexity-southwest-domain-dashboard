@@ -12,10 +12,9 @@ export const SchoolCard = ({ name, domains, febActivations }: SchoolCardProps) =
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="w-full p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow"
+      className="w-full p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow"
       style={{
         backgroundColor: "#FBFAF4", // Paper White for card background
-        borderLeft: "4px solid #13343B", // Inky Blue left border
       }}
     >
       <div className="flex justify-between items-center">
@@ -23,13 +22,9 @@ export const SchoolCard = ({ name, domains, febActivations }: SchoolCardProps) =
         <h3 className="text-xl font-bold" style={{ color: "#13343B" }}>
           {name}
         </h3>
-
         {/* February Activations */}
         <div className="flex flex-col items-center">
-          <span
-            className="text-xs uppercase tracking-wide"
-            style={{ color: "#2E565E" }} // Peacock for label text
-          >
+          <span className="text-xs uppercase tracking-wide" style={{ color: "#2E565E" }}>
             Activations
           </span>
           <span className="text-2xl font-bold" style={{ color: "#1FB8CD" }}>
@@ -37,7 +32,6 @@ export const SchoolCard = ({ name, domains, febActivations }: SchoolCardProps) =
           </span>
         </div>
       </div>
-
       {/* Domain Pills */}
       <div className="mt-4 flex flex-wrap gap-2">
         {domains.map((domain) => (
@@ -45,7 +39,7 @@ export const SchoolCard = ({ name, domains, febActivations }: SchoolCardProps) =
             key={domain}
             className="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium"
             style={{
-              backgroundColor: "#20808D", // True Turquoise for the domain pill background
+              backgroundColor: "#20808D", // True Turquoise for domain pill background
               color: "#FBFAF4", // Paper White for text inside the pills
             }}
           >
@@ -56,3 +50,4 @@ export const SchoolCard = ({ name, domains, febActivations }: SchoolCardProps) =
     </motion.div>
   );
 };
+
