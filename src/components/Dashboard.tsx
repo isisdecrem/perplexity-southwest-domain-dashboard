@@ -26,19 +26,22 @@ export const Dashboard = ({ data }: DashboardProps) => {
   }, [data]);
 
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
+    <div className="min-h-screen" style={{ backgroundColor: "#BADEDD" }}>
       {/* Hero/Header Section */}
-      <div className="py-8" style={{ backgroundColor: "#5A2D82" }}>
+      <div className="py-8" style={{ backgroundColor: "#13343B" }}>
         <div className="max-w-4xl mx-auto flex flex-col items-center">
           <img
             src="/lovable-uploads/50de9c24-ca29-4bc3-98e4-3563edae6ec4.png"
             alt="Perplexity Logo"
             className="h-16 object-contain mb-4"
           />
-          <h1 className="text-5xl font-extrabold text-white mb-2">
+          <h1
+            className="text-5xl font-extrabold mb-2"
+            style={{ color: "#FBFAF4" }} // Paper White text for header
+          >
             Perplexity Southwest February Growth
           </h1>
-          <div className="text-xl font-bold text-white">
+          <div className="text-xl font-bold" style={{ color: "#FBFAF4" }}>
             Total Feb Activations: {totalFebActivations}
           </div>
         </div>
