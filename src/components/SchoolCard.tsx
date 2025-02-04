@@ -1,13 +1,14 @@
+// File: src/components/SchoolCard.tsx
 import { motion } from "framer-motion";
 
 interface SchoolCardProps {
   name: string;
   domains: string[];
-  initialCount: number;
   newOnboards: number;
+  febActivations: number;
 }
 
-export const SchoolCard = ({ name, domains, initialCount, newOnboards }: SchoolCardProps) => {
+export const SchoolCard = ({ name, domains, newOnboards, febActivations }: SchoolCardProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -19,7 +20,7 @@ export const SchoolCard = ({ name, domains, initialCount, newOnboards }: SchoolC
         <h3 className="text-lg font-semibold mb-2 md:mb-0">{name}</h3>
         <div className="flex flex-wrap gap-4">
           <div className="stats-badge">
-            Feb Activations: {newOnboards}
+            Feb Activations: {febActivations}
           </div>
         </div>
       </div>
