@@ -18,8 +18,8 @@ export const SchoolCard = ({ name, domains, newOnboards, febActivations }: Schoo
     >
       <div className="flex flex-col md:flex-row md:justify-between md:items-center">
         <h3 className="text-lg font-semibold mb-2 md:mb-0">{name}</h3>
-        <div className="flex flex-wrap gap-4">
-          <div className="stats-badge">
+        <div className="flex flex-wrap gap-4 items-center">
+          <div className="stats-badge text-xl font-bold">
             Feb Activations: {febActivations}
           </div>
         </div>
