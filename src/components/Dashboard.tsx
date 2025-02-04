@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 interface School {
   domains: string[];
   initial_count: number;
-  new_onboards: number;
+  feb_activations: number;
 }
 
 interface DashboardProps {
@@ -13,23 +13,12 @@ interface DashboardProps {
 }
 
 export const Dashboard = ({ data }: DashboardProps) => {
-  const [sortBy, setSortBy] = useState<"new" | "total">("new");
-
   const sortedSchools = useMemo(() => {
-    return Object.entries(data).sort(([, a], [, b]) => {
-      if (sortBy === "new") {
-        return b.new_onboards - a.new_onboards;
-      }
-      return (b.initial_count + b.new_onboards) - (a.initial_count + a.new_onboards);
-    });
-  }, [data, sortBy]);
-
-  const totalNewOnboards = useMemo(() => {
-    return Object.values(data).reduce((sum, school) => sum + school.new_onboards, 0);
+    return Object.entries(data).sort(([, a], [, b]) => b.feb_activations - a.feb_activations);
   }, [data]);
 
-  const totalInitial = useMemo(() => {
-    return Object.values(data).reduce((sum, school) => sum + school.initial_count, 0);
+  const totalFebActivations = useMemo(() => {
+    return Object.values(data).reduce((sum, school) => sum + school.feb_activations, 0);
   }, [data]);
 
   return (
@@ -51,38 +40,8 @@ export const Dashboard = ({ data }: DashboardProps) => {
           <h1 className="text-4xl font-bold mb-4">
             Perplexity Southwest February Growth
           </h1>
-          <div className="flex justify-center space-x-8">
-            <div className="stats-badge text-lg">
-              Total Feb Activations: {totalNewOnboards}
-            </div>
-            <div className="stats-badge text-lg">
-              Total Initial: {totalInitial}
-            </div>
-          </div>
-        </div>
-
-        <div className="mb-8 flex justify-end">
-          <div className="inline-flex rounded-lg overflow-hidden">
-            <button
-              onClick={() => setSortBy("new")}
-              className={`px-4 py-2 text-sm font-medium transition-colors ${
-                sortBy === "new"
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-secondary hover:bg-secondary/80"
-              }`}
-            >
-              Sort by Feb Activations
-            </button>
-            <button
-              onClick={() => setSortBy("total")}
-              className={`px-4 py-2 text-sm font-medium transition-colors ${
-                sortBy === "total"
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-secondary hover:bg-secondary/80"
-              }`}
-            >
-              Sort by Total
-            </button>
+          <div className="stats-badge text-lg">
+            Total Feb Activations: {totalFebActivations}
           </div>
         </div>
 
@@ -91,9 +50,7 @@ export const Dashboard = ({ data }: DashboardProps) => {
             <SchoolCard
               key={name}
               name={name}
-              domains={school.domains}
-              initialCount={school.initial_count}
-              newOnboards={school.new_onboards}
+              febActivations={school.feb_activations}
             />
           ))}
         </div>
