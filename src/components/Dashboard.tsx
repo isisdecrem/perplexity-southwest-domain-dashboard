@@ -26,7 +26,7 @@ export const Dashboard = ({ data }: DashboardProps) => {
   }, [data]);
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: "#F7F7F7" }}>
+    <div className="min-h-screen" style={{ backgroundColor: "#FFFFFF" }}>
       {/* Header Section */}
       <div className="py-6" style={{ backgroundColor: "#FFFFFF" }}>
         <div className="max-w-3xl mx-auto px-4 flex flex-col items-center">
@@ -62,4 +62,3 @@ export const Dashboard = ({ data }: DashboardProps) => {
     </div>
   );
 };
-
