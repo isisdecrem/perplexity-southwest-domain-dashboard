@@ -12,10 +12,7 @@ export const SchoolCard = ({ name, domains, febActivations }: SchoolCardProps) =
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="w-full p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow"
-      style={{
-        backgroundColor: "#FFFFFF", // Clean white card background
-      }}
+      className="w-full p-6 bg-white rounded-xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300"
     >
       <div className="flex justify-between items-center">
         {/* School Name */}
@@ -51,5 +48,4 @@ export const SchoolCard = ({ name, domains, febActivations }: SchoolCardProps) =
     </motion.div>
   );
 };
-
 
