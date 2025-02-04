@@ -14,7 +14,7 @@ export const SchoolCard = ({ name, domains, febActivations }: SchoolCardProps) =
       transition={{ duration: 0.5 }}
       className="w-full p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow"
       style={{
-        backgroundColor: "#FBFAF4", // Paper White for card background
+        backgroundColor: "#FFFFFF", // Clean white card background
       }}
     >
       <div className="flex justify-between items-center">
@@ -32,6 +32,7 @@ export const SchoolCard = ({ name, domains, febActivations }: SchoolCardProps) =
           </span>
         </div>
       </div>
+
       {/* Domain Pills */}
       <div className="mt-4 flex flex-wrap gap-2">
         {domains.map((domain) => (
@@ -40,7 +41,7 @@ export const SchoolCard = ({ name, domains, febActivations }: SchoolCardProps) =
             className="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium"
             style={{
               backgroundColor: "#20808D", // True Turquoise for domain pill background
-              color: "#FBFAF4", // Paper White for text inside the pills
+              color: "#FBFAF4", // Paper White for pill text
             }}
           >
             {domain}
@@ -50,4 +51,5 @@ export const SchoolCard = ({ name, domains, febActivations }: SchoolCardProps) =
     </motion.div>
   );
 };
+
 
