@@ -3,16 +3,10 @@ import { motion } from "framer-motion";
 interface SchoolCardProps {
   name: string;
   domains: string[];
-  newOnboards: number;
   febActivations: number;
 }
 
-export const SchoolCard = ({
-  name,
-  domains,
-  newOnboards,
-  febActivations
-}: SchoolCardProps) => {
+export const SchoolCard = ({ name, domains, febActivations }: SchoolCardProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -26,24 +20,14 @@ export const SchoolCard = ({
           {name}
         </h3>
 
-        {/* Metrics */}
-        <div className="flex space-x-6">
-          <div className="flex flex-col items-center">
-            <span className="text-xs text-gray-500 uppercase tracking-wide">
-              Onboards
-            </span>
-            <span className="stats-badge text-2xl font-bold text-perplexity-secondary">
-              {newOnboards}
-            </span>
-          </div>
-          <div className="flex flex-col items-center">
-            <span className="text-xs text-gray-500 uppercase tracking-wide">
-              Activations
-            </span>
-            <span className="stats-badge text-2xl font-bold text-perplexity-secondary">
-              {febActivations}
-            </span>
-          </div>
+        {/* Feb Activations */}
+        <div className="flex flex-col items-center">
+          <span className="text-xs text-gray-500 uppercase tracking-wide">
+            Activations
+          </span>
+          <span className="stats-badge text-2xl font-bold text-perplexity-secondary">
+            {febActivations}
+          </span>
         </div>
       </div>
 
