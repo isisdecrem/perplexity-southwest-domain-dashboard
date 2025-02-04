@@ -24,7 +24,9 @@ export const SchoolCard = ({ name, domains, initialCount, newOnboards }: SchoolC
           <div className="stats-badge">
             Initial Count: {initialCount}
           </div>
-        <div className="mt-4 flex flex-wrap gap-2">
+        </div>
+      </div>
+      <div className="mt-4 flex flex-wrap gap-2">
         {domains.map((domain) => (
           <span key={domain} className="inline-flex items-center rounded-full bg-secondary px-2.5 py-0.5 text-xs font-medium text-secondary-foreground">
             {domain}

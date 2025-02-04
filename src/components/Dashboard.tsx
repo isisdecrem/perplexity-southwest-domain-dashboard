@@ -37,8 +37,16 @@ export const Dashboard = ({ data }: DashboardProps) => {
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="max-w-4xl mx-auto" // Changed from max-w-7xl to max-w-4xl for better single-column layout
+        className="max-w-4xl mx-auto"
       >
+        <div className="flex justify-center mb-8">
+          <img 
+            src="/lovable-uploads/50de9c24-ca29-4bc3-98e4-3563edae6ec4.png" 
+            alt="Perplexity Logo" 
+            className="h-16 object-contain"
+          />
+        </div>
+
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-4">
             Perplexity Southwest February Growth
@@ -78,8 +86,8 @@ export const Dashboard = ({ data }: DashboardProps) => {
           </div>
         </div>
 
-        <div className="flex flex-col space-y-4"> {/* Changed from grid to flex column */}
-          {sortedSchools.map(([name, school], index) => (
+        <div className="flex flex-col space-y-4">
+          {sortedSchools.map(([name, school]) => (
             <SchoolCard
               key={name}
               name={name}
