@@ -12,34 +12,42 @@ export const SchoolCard = ({ name, domains, febActivations }: SchoolCardProps) =
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="w-full p-6 bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition-shadow"
-      // Left border in primary color
-      style={{ borderLeft: "4px solid #5A2D82" }}
+      className="w-full p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow"
+      style={{
+        backgroundColor: "#FBFAF4", // Paper White for card background
+        borderLeft: "4px solid #13343B", // Inky Blue left border
+      }}
     >
       <div className="flex justify-between items-center">
         {/* School Name */}
-        <h3 className="text-xl font-bold" style={{ color: "#5A2D82" }}>
+        <h3 className="text-xl font-bold" style={{ color: "#13343B" }}>
           {name}
         </h3>
 
-        {/* Feb Activations */}
+        {/* February Activations */}
         <div className="flex flex-col items-center">
-          <span className="text-xs text-gray-500 uppercase tracking-wide">
+          <span
+            className="text-xs uppercase tracking-wide"
+            style={{ color: "#2E565E" }} // Peacock for label text
+          >
             Activations
           </span>
-          <span className="text-2xl font-bold" style={{ color: "#0072CE" }}>
+          <span className="text-2xl font-bold" style={{ color: "#1FB8CD" }}>
             {febActivations}
           </span>
         </div>
       </div>
 
-      {/* Domains */}
+      {/* Domain Pills */}
       <div className="mt-4 flex flex-wrap gap-2">
         {domains.map((domain) => (
           <span
             key={domain}
-            className="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium text-white"
-            style={{ backgroundColor: "#0072CE" }}
+            className="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium"
+            style={{
+              backgroundColor: "#20808D", // True Turquoise for the domain pill background
+              color: "#FBFAF4", // Paper White for text inside the pills
+            }}
           >
             {domain}
           </span>
