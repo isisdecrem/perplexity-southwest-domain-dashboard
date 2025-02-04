@@ -21,9 +21,6 @@ export const SchoolCard = ({ name, domains, initialCount, newOnboards }: SchoolC
           <div className="stats-badge">
             Feb Activations: {newOnboards}
           </div>
-          <div className="stats-badge">
-            Initial Count: {initialCount}
-          </div>
         </div>
       </div>
       <div className="mt-4 flex flex-wrap gap-2">
