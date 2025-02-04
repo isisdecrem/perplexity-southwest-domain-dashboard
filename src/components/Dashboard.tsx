@@ -26,9 +26,9 @@ export const Dashboard = ({ data }: DashboardProps) => {
   }, [data]);
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: "#BADEDD" }}>
+    <div className="min-h-screen" style={{ backgroundColor: "#F7F7F7" }}>
       {/* Header Section */}
-      <div className="py-6" style={{ backgroundColor: "#FBFAF4" }}>
+      <div className="py-6" style={{ backgroundColor: "#FFFFFF" }}>
         <div className="max-w-3xl mx-auto px-4 flex flex-col items-center">
           <img
             src="/lovable-uploads/50de9c24-ca29-4bc3-98e4-3563edae6ec4.png"
@@ -44,7 +44,7 @@ export const Dashboard = ({ data }: DashboardProps) => {
         </div>
       </div>
 
-      {/* School Cards */}
+      {/* School Cards Section */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
