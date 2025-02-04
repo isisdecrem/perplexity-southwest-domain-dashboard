@@ -1,7 +1,7 @@
 // File: src/lib/uploadHandler.ts
 
 // Function to read and process the uploaded file
-export const handleFileUpload = async (file: File): Promise<Record<string, any>> => {
+export const handleFileUpload = async (file: Blob): Promise<Record<string, any>> => {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
 
@@ -10,9 +10,9 @@ export const handleFileUpload = async (file: File): Promise<Record<string, any>>
         const fileContent = event.target?.result as string;
         let newData: any[];
 
-        if (file.name.endsWith('.json')) {
+        if (file.type === 'application/json') {
           newData = JSON.parse(fileContent);
-        } else if (file.name.endsWith('.csv')) {
+        } else if (file.type === 'text/csv') {
           newData = csvToJson(fileContent); // Implement csvToJson to convert CSV to JSON
         } else {
           throw new Error('Unsupported file format');
