@@ -68,5 +68,3 @@ export const initialData = {
     initial_count: 4
   }
 } as const;
-
-<lov-add-dependency>framer-motion@latest</lov-add-dependency>
