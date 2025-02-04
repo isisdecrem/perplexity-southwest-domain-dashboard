@@ -12,9 +12,9 @@ export const SchoolCard = ({ name, domains, febActivations }: SchoolCardProps) =
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="w-full p-6 rounded-xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300"
+      className="w-full p-6 rounded-xl border border-gray-300 shadow-md transform transition duration-300 hover:shadow-xl hover:scale-105"
       style={{
-        backgroundColor: "#D5DDDF", // Using Peacock 20 for the card background
+        backgroundColor: "#EAEEEF", // Using Peacock 10 for a subtle off-white card background
       }}
     >
       <div className="flex justify-between items-center">
@@ -24,10 +24,7 @@ export const SchoolCard = ({ name, domains, febActivations }: SchoolCardProps) =
         </h3>
         {/* February Activations */}
         <div className="flex flex-col items-center">
-          <span
-            className="text-xs uppercase tracking-wide"
-            style={{ color: "#2E565E" }}
-          >
+          <span className="text-xs uppercase tracking-wide" style={{ color: "#2E565E" }}>
             Activations
           </span>
           <span className="text-2xl font-bold" style={{ color: "#1FB8CD" }}>
