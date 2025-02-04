@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 
 interface School {
   domains: string[];
-  // new_onboards: number; // Removed since we're no longer displaying onboards
   feb_activations: number;
 }
 
@@ -29,7 +28,7 @@ export const Dashboard = ({ data }: DashboardProps) => {
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
       {/* Hero/Header Section */}
-      <div className="bg-perplexity-primary py-8">
+      <div className="py-8" style={{ backgroundColor: "#5A2D82" }}>
         <div className="max-w-4xl mx-auto flex flex-col items-center">
           <img
             src="/lovable-uploads/50de9c24-ca29-4bc3-98e4-3563edae6ec4.png"
@@ -39,7 +38,7 @@ export const Dashboard = ({ data }: DashboardProps) => {
           <h1 className="text-5xl font-extrabold text-white mb-2">
             Perplexity Southwest February Growth
           </h1>
-          <div className="stats-badge text-xl font-bold text-white">
+          <div className="text-xl font-bold text-white">
             Total Feb Activations: {totalFebActivations}
           </div>
         </div>
