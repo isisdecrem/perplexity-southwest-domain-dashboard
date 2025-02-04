@@ -1,4 +1,12 @@
-export const dailyCounts = {
+// File: src/lib/daily-counts.ts
+
+interface DailyCounts {
+  [date: string]: {
+    [school: string]: number;
+  };
+}
+
+export const dailyCounts: DailyCounts = {
   "2024-02-29": {
     "Arizona State University": 45,
     "Baylor University": 8,
@@ -24,7 +32,7 @@ export const dailyCounts = {
 export const calculateNewOnboards = (schoolName: string, initialCount: number) => {
   const latestDate = Object.keys(dailyCounts).sort().pop();
   if (!latestDate) return 0;
-  
+
   const currentCount = dailyCounts[latestDate][schoolName as keyof typeof dailyCounts[typeof latestDate]] || 0;
   return Math.max(0, currentCount - initialCount);
 };
