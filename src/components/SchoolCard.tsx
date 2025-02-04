@@ -12,7 +12,10 @@ export const SchoolCard = ({ name, domains, febActivations }: SchoolCardProps) =
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="w-full p-6 bg-white rounded-xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300"
+      className="w-full p-6 rounded-xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300"
+      style={{
+        backgroundColor: "#D5DDDF", // Using Peacock 20 for the card background
+      }}
     >
       <div className="flex justify-between items-center">
         {/* School Name */}
@@ -21,7 +24,10 @@ export const SchoolCard = ({ name, domains, febActivations }: SchoolCardProps) =
         </h3>
         {/* February Activations */}
         <div className="flex flex-col items-center">
-          <span className="text-xs uppercase tracking-wide" style={{ color: "#2E565E" }}>
+          <span
+            className="text-xs uppercase tracking-wide"
+            style={{ color: "#2E565E" }}
+          >
             Activations
           </span>
           <span className="text-2xl font-bold" style={{ color: "#1FB8CD" }}>
@@ -38,7 +44,7 @@ export const SchoolCard = ({ name, domains, febActivations }: SchoolCardProps) =
             className="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium"
             style={{
               backgroundColor: "#20808D", // True Turquoise for domain pill background
-              color: "#FBFAF4", // Paper White for pill text
+              color: "#FBFAF4", // Paper White for the pill text
             }}
           >
             {domain}
@@ -48,4 +54,3 @@ export const SchoolCard = ({ name, domains, febActivations }: SchoolCardProps) =
     </motion.div>
   );
 };
-
