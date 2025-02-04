@@ -1,14 +1,17 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { Dashboard } from "@/components/Dashboard";
+import { initialData } from "@/lib/data";
 
 const Index = () => {
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
-    </div>
-  );
+  // Transform the data to include new_onboards
+  const dashboardData = Object.entries(initialData).reduce((acc, [school, data]) => {
+    acc[school] = {
+      ...data,
+      new_onboards: 0, // This would be updated with real data
+    };
+    return acc;
+  }, {} as Record<string, any>);
+
+  return <Dashboard data={dashboardData} />;
 };
 
 export default Index;
