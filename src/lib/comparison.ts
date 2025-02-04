@@ -4,7 +4,7 @@ import { initialData } from './data';
 interface SchoolData {
   domains: string[];
   initial_count: number;
-  new_onboards: number;
+  feb_activations: number;
   [key: string]: any;
 }
 
@@ -35,10 +35,14 @@ export const compareData = (newData: NewData[]): Record<string, SchoolData> => {
     const school = getSchoolByDomain(item["Email Domain"]);
     if (school) {
       if (!changes[school]) {
-        changes[school] = { ...initialData[school], new_onboards: 0 };
+        changes[school] = { ...initialData[school], feb_activations: 0 };
       }
-      changes[school].new_onboards += parseInt(item["Activations (BTS 2025 Spring)"]) || 0;
+      changes[school].feb_activations += parseInt(item["Activations (BTS 2025 Spring)"]) || 0;
     }
+  });
+
+  Object.keys(changes).forEach(school => {
+    changes[school].feb_activations -= initialData[school].initial_count;
   });
 
   return changes;
