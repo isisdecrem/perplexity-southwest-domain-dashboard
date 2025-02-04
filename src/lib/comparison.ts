@@ -20,7 +20,7 @@ const getSchoolByDomain = (email: string): string | null => {
   return null;
 };
 
-export const compareData = (newData: NewData[]): any => {
+export const compareData = (newData: NewData[]): Record<string, any> => {
   const changes = {};
 
   newData.forEach(item => {
