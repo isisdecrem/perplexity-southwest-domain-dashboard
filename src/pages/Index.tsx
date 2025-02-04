@@ -12,7 +12,7 @@ const Index = () => {
     const updatedData = Object.entries(initialData).reduce((acc, [school, data]) => {
       acc[school] = {
         ...data,
-        new_onboards: changes[school]?.new_count || 0,
+        feb_activations: changes[school]?.feb_activations || 0,
       };
       return acc;
     }, {} as Record<string, any>);
