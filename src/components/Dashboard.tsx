@@ -27,21 +27,18 @@ export const Dashboard = ({ data }: DashboardProps) => {
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#BADEDD" }}>
-      {/* Hero/Header Section */}
-      <div className="py-8" style={{ backgroundColor: "#13343B" }}>
-        <div className="max-w-4xl mx-auto flex flex-col items-center">
+      {/* Header Section */}
+      <div className="py-6" style={{ backgroundColor: "#FBFAF4" }}>
+        <div className="max-w-3xl mx-auto px-4 flex flex-col items-center">
           <img
             src="/lovable-uploads/50de9c24-ca29-4bc3-98e4-3563edae6ec4.png"
             alt="Perplexity Logo"
-            className="h-16 object-contain mb-4"
+            className="h-12 object-contain mb-2"
           />
-          <h1
-            className="text-5xl font-extrabold mb-2"
-            style={{ color: "#FBFAF4" }} // Paper White text for header
-          >
+          <h1 className="text-3xl font-bold mb-1" style={{ color: "#13343B" }}>
             Perplexity Southwest February Growth
           </h1>
-          <div className="text-xl font-bold" style={{ color: "#FBFAF4" }}>
+          <div className="text-lg font-semibold" style={{ color: "#13343B" }}>
             Total Feb Activations: {totalFebActivations}
           </div>
         </div>
@@ -51,7 +48,7 @@ export const Dashboard = ({ data }: DashboardProps) => {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="max-w-4xl mx-auto p-8 space-y-6"
+        className="max-w-3xl mx-auto p-4 space-y-4"
       >
         {sortedSchools.map(([name, school]) => (
           <SchoolCard
@@ -65,3 +62,4 @@ export const Dashboard = ({ data }: DashboardProps) => {
     </div>
   );
 };
+
