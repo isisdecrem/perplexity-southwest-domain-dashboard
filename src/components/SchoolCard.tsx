@@ -12,11 +12,13 @@ export const SchoolCard = ({ name, domains, febActivations }: SchoolCardProps) =
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="w-full p-6 bg-white dark:bg-gray-800 rounded-xl border-l-4 border-perplexity-primary shadow-sm hover:shadow-lg transition-shadow"
+      className="w-full p-6 bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition-shadow"
+      // Left border in primary color
+      style={{ borderLeft: "4px solid #5A2D82" }}
     >
       <div className="flex justify-between items-center">
         {/* School Name */}
-        <h3 className="text-xl font-bold text-perplexity-primary">
+        <h3 className="text-xl font-bold" style={{ color: "#5A2D82" }}>
           {name}
         </h3>
 
@@ -25,7 +27,7 @@ export const SchoolCard = ({ name, domains, febActivations }: SchoolCardProps) =
           <span className="text-xs text-gray-500 uppercase tracking-wide">
             Activations
           </span>
-          <span className="stats-badge text-2xl font-bold text-perplexity-secondary">
+          <span className="text-2xl font-bold" style={{ color: "#0072CE" }}>
             {febActivations}
           </span>
         </div>
@@ -36,7 +38,8 @@ export const SchoolCard = ({ name, domains, febActivations }: SchoolCardProps) =
         {domains.map((domain) => (
           <span
             key={domain}
-            className="inline-flex items-center rounded-full bg-perplexity-secondary px-3 py-1 text-sm font-medium text-white"
+            className="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium text-white"
+            style={{ backgroundColor: "#0072CE" }}
           >
             {domain}
           </span>
