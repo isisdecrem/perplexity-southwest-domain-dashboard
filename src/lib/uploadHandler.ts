@@ -3,7 +3,7 @@ import fs from 'fs';
 import { compareData } from './comparison';
 
 // Function to read and process the uploaded file
-export const handleFileUpload = async (filePath: string) => {
+export const handleFileUpload = async (filePath: string): Promise<Record<string, any>> => {
   const fileContent = fs.readFileSync(filePath, 'utf-8');
   let newData: any[];
 
@@ -16,7 +16,7 @@ export const handleFileUpload = async (filePath: string) => {
   }
 
   const changes = compareData(newData);
-  console.log('Detected Changes:', changes);
+  return changes;
 };
 
 // Helper function to convert CSV to JSON
