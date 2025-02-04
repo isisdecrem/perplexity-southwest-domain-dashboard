@@ -14,7 +14,7 @@ export const SchoolCard = ({ name, domains, febActivations }: SchoolCardProps) =
       transition={{ duration: 0.5 }}
       className="w-full p-6 rounded-xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300"
       style={{
-        backgroundColor: "#D5DDDF", // Using Peacock 20 for the card background
+        backgroundColor: "##EAEEEF", // Using Peacock 10 for the card background
       }}
     >
       <div className="flex justify-between items-center">
