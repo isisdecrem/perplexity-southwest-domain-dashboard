@@ -1,8 +1,3 @@
-2 references
-To integrate the data-today.json file into your code without displaying the file upload option, you can import and use the JSON file directly in your Index.tsx component. Here is how you can achieve it:
-
-Step 1: Import the data-today.json file in Index.tsx
-TSX
 import React, { useEffect, useState } from 'react';
 import { Dashboard } from "@/components/Dashboard";
 import { initialData } from "@/lib/data";
