@@ -37,7 +37,7 @@ export const Dashboard = ({ data }: DashboardProps) => {
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="max-w-7xl mx-auto"
+        className="max-w-4xl mx-auto" // Changed from max-w-7xl to max-w-4xl for better single-column layout
       >
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-4">
@@ -78,7 +78,7 @@ export const Dashboard = ({ data }: DashboardProps) => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="flex flex-col space-y-4"> {/* Changed from grid to flex column */}
           {sortedSchools.map(([name, school], index) => (
             <SchoolCard
               key={name}

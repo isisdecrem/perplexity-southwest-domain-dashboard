@@ -13,20 +13,20 @@ export const SchoolCard = ({ name, domains, initialCount, newOnboards }: SchoolC
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="school-card"
+      className="w-full p-6 bg-card rounded-lg border shadow-sm hover:shadow-md transition-shadow"
     >
-      <h3 className="text-lg font-semibold mb-2">{name}</h3>
-      <div className="flex space-x-4 mb-4">
-        <div className="stats-badge">
-          Feb Activations: {newOnboards}
-        </div>
-        <div className="stats-badge">
-          Initial Count: {initialCount}
-        </div>
-      </div>
-      <div className="flex flex-wrap">
+      <div className="flex flex-col md:flex-row md:justify-between md:items-center">
+        <h3 className="text-lg font-semibold mb-2 md:mb-0">{name}</h3>
+        <div className="flex flex-wrap gap-4">
+          <div className="stats-badge">
+            Feb Activations: {newOnboards}
+          </div>
+          <div className="stats-badge">
+            Initial Count: {initialCount}
+          </div>
+        <div className="mt-4 flex flex-wrap gap-2">
         {domains.map((domain) => (
-          <span key={domain} className="domain-tag">
+          <span key={domain} className="inline-flex items-center rounded-full bg-secondary px-2.5 py-0.5 text-xs font-medium text-secondary-foreground">
             {domain}
           </span>
         ))}
