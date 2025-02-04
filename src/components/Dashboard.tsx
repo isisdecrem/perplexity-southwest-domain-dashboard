@@ -41,6 +41,9 @@ export const Dashboard = ({ data }: DashboardProps) => {
           <div className="text-lg font-semibold" style={{ color: "#13343B" }}>
             Total Feb Activations: {totalFebActivations}
           </div>
+          <div className="text-sm text-gray-500 mt-1">
+            Last updated 2.4
+          </div>
         </div>
       </div>
 
