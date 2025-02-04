@@ -1,10 +1,11 @@
+// File: src/components/Dashboard.tsx
 import { useState, useMemo } from "react";
 import { SchoolCard } from "./SchoolCard";
 import { motion } from "framer-motion";
 
 interface School {
   domains: string[];
-  initial_count: number;
+  new_onboards: number;
   feb_activations: number;
 }
 
@@ -50,6 +51,8 @@ export const Dashboard = ({ data }: DashboardProps) => {
             <SchoolCard
               key={name}
               name={name}
+              domains={school.domains}
+              newOnboards={school.new_onboards}
               febActivations={school.feb_activations}
             />
           ))}
