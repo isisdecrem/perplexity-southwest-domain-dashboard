@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Dashboard } from "@/components/Dashboard";
 import { initialData } from "@/lib/data";
 import { handleFileUpload } from "@/lib/uploadHandler";
@@ -6,10 +6,11 @@ import { handleFileUpload } from "@/lib/uploadHandler";
 const Index = () => {
   const [dashboardData, setDashboardData] = useState(null);
 
-  useEffect(() => {
-    const fetchChanges = async () => {
+  const onFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
       try {
-        const changes = await handleFileUpload('path/to/uploaded/file.json'); // Update with actual file path
+        const changes = await handleFileUpload(file);
         const updatedData = Object.entries(initialData).reduce((acc, [school, data]) => {
           acc[school] = {
             ...data,
@@ -21,13 +22,15 @@ const Index = () => {
       } catch (error) {
         console.error("Error processing file upload:", error);
       }
-    };
-
-    fetchChanges();
-  }, []);
+    }
+  };
 
   if (!dashboardData) {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <input type="file" onChange={onFileChange} />
+      </div>
+    );
   }
 
   return <Dashboard data={dashboardData} />;
