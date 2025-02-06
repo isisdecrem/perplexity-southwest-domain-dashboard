@@ -66,5 +66,13 @@ export const initialData = {
   'Texas Christian University': {
     domains: ['@tcu.edu'],
     initial_count: 4
+  },
+  'Austin Community College': {
+    domains: ['@austincc.edu, @g.austincc.edu'],
+    initial_count: 35
+  },
+  'Collin County College': {
+    domains: ['@collin.edu'],
+    initial_count: 0
   }
 } as const;
