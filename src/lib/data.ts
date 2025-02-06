@@ -68,7 +68,7 @@ export const initialData = {
     initial_count: 4
   },
   'Austin Community College': {
-    domains: ['@austincc.edu, @g.austincc.edu'],
+    domains: ['@austincc.edu', '@g.austincc.edu'],
     initial_count: 35
   },
   'Collin County College': {
