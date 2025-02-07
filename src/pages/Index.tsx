@@ -1,23 +1,28 @@
+
 import React, { useEffect, useState } from 'react';
 import { Dashboard } from "@/components/Dashboard";
 import { initialData } from "@/lib/data";
 import todayData from "@/lib/data-today.json";
-import { compareData } from "@/lib/comparison"; // Ensure this import is correct based on your project structure
+import { compareData, SchoolData } from "@/lib/comparison";
 
-const Index = () => {
-  const [dashboardData, setDashboardData] = useState(null);
+interface IndexProps {
+  changes?: Record<string, SchoolData>;
+}
+
+const Index = ({ changes }: IndexProps) => {
+  const [dashboardData, setDashboardData] = useState<Record<string, SchoolData> | null>(null);
 
   useEffect(() => {
-    const changes = compareData(todayData);
+    const computedChanges = changes || compareData(todayData);
     const updatedData = Object.entries(initialData).reduce((acc, [school, data]) => {
       acc[school] = {
         ...data,
-        feb_activations: changes[school]?.feb_activations || 0,
+        feb_activations: computedChanges[school]?.feb_activations || 0,
       };
       return acc;
-    }, {} as Record<string, any>);
+    }, {} as Record<string, SchoolData>);
     setDashboardData(updatedData);
-  }, []);
+  }, [changes]);
 
   if (!dashboardData) {
     return <div>Loading...</div>;

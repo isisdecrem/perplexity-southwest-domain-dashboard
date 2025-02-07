@@ -1,14 +1,5 @@
-// File: src/lib/comparison.ts
-import { initialData } from './data';
 
-interface SchoolData {
-  domains: string[];
-  initial_count: number;
-  feb_activations: number;
-  [key: string]: any;
-}
-
-interface NewData {
+export interface NewData {
   "Strategist Region": string;
   "Country": string;
   "US State": string;
@@ -17,6 +8,12 @@ interface NewData {
   "Activations (BTS 2025 Spring)": string;
   "Queries (from BTS 2025 Spring Registrations)": string;
   "Queries": string;
+}
+
+export interface SchoolData {
+  domains: string[];
+  initial_count: number;
+  feb_activations: number;
 }
 
 const getSchoolByDomain = (emailDomain: string): string | null => {
@@ -29,13 +26,17 @@ const getSchoolByDomain = (emailDomain: string): string | null => {
 };
 
 export const compareData = (newData: NewData[]): Record<string, SchoolData> => {
-  const changes = {};
+  const changes: Record<string, SchoolData> = {};
 
   newData.forEach(item => {
     const school = getSchoolByDomain(item["Email Domain"]);
     if (school) {
       if (!changes[school]) {
-        changes[school] = { ...initialData[school], feb_activations: 0 };
+        changes[school] = { 
+          domains: initialData[school].domains,
+          initial_count: initialData[school].initial_count,
+          feb_activations: 0 
+        };
       }
       changes[school].feb_activations += parseInt(item["Activations (BTS 2025 Spring)"]) || 0;
     }
@@ -47,3 +48,4 @@ export const compareData = (newData: NewData[]): Record<string, SchoolData> => {
 
   return changes;
 };
+
