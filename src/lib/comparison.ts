@@ -1,4 +1,4 @@
-// File: src/lib/comparison.ts
+
 import { initialData } from './data';
 
 interface SchoolData {
@@ -19,7 +19,9 @@ interface NewData {
   "Queries": string;
 }
 
-const getSchoolByDomain = (emailDomain: string): string | null => {
+const getSchoolByDomain = (emailDomain: string | undefined): string | null => {
+  if (!emailDomain) return null;
+  
   for (const school in initialData) {
     if (initialData[school].domains.some(domain => emailDomain.endsWith(domain))) {
       return school;
@@ -29,11 +31,16 @@ const getSchoolByDomain = (emailDomain: string): string | null => {
 };
 
 export const compareData = (newData: NewData[]): Record<string, SchoolData> => {
-  const changes = {};
+  const changes: Record<string, SchoolData> = {};
+
+  if (!Array.isArray(newData)) {
+    console.error('newData is not an array:', newData);
+    return changes;
+  }
 
   newData.forEach(item => {
     const school = getSchoolByDomain(item["Email Domain"]);
-    if (school) {
+    if (school && initialData[school]) {
       if (!changes[school]) {
         changes[school] = { ...initialData[school], feb_activations: 0 };
       }
@@ -42,7 +49,9 @@ export const compareData = (newData: NewData[]): Record<string, SchoolData> => {
   });
 
   Object.keys(changes).forEach(school => {
-    changes[school].feb_activations -= initialData[school].initial_count;
+    if (initialData[school]) {
+      changes[school].feb_activations -= initialData[school].initial_count;
+    }
   });
 
   return changes;

@@ -1,4 +1,4 @@
-// File: src/App.tsx
+
 import React, { useEffect, useState } from 'react';
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -12,12 +12,17 @@ import { handleFileUpload } from './lib/uploadHandler';
 const queryClient = new QueryClient();
 
 const App = () => {
-  const [changes, setChanges] = useState(null);
+  const [changes, setChanges] = useState<Record<string, any> | null>(null);
 
   useEffect(() => {
     const fetchChanges = async () => {
-      const changes = await handleFileUpload('/path/to/uploaded/file.json'); // Update with actual file path
-      setChanges(changes);
+      try {
+        const data = await handleFileUpload('/src/lib/data-today.json');
+        setChanges(data);
+      } catch (error) {
+        console.error('Error fetching changes:', error);
+        setChanges({});
+      }
     };
 
     fetchChanges();
