@@ -1,23 +1,38 @@
-import { compareData } from './comparison';
+// File: src/lib/uploadHandler.ts
 
-export const handleFileUpload = async (filePath: string): Promise<Record<string, any>> => {
-  try {
-    // Since we're working with a file path, let's fetch the JSON directly
-    const response = await fetch(filePath);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const data = await response.json();
-    const changes = compareData(Array.isArray(data) ? data : [data]);
-    return changes;
-  } catch (error) {
-    console.error('Error handling file upload:', error);
-    return {};
-  }
+// Function to read and process the uploaded file
+export const handleFileUpload = async (file: Blob): Promise<Record<string, any>> => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+
+    reader.onload = (event) => {
+      try {
+        const fileContent = event.target?.result as string;
+        let newData: any[];
+
+        if (file.type === 'application/json') {
+          newData = JSON.parse(fileContent);
+        } else if (file.type === 'text/csv') {
+          newData = csvToJson(fileContent); // Implement csvToJson to convert CSV to JSON
+        } else {
+          throw new Error('Unsupported file format');
+        }
+
+        const changes = compareData(newData);
+        resolve(changes);
+      } catch (error) {
+        reject(error);
+      }
+    };
+
+    reader.onerror = (error) => reject(error);
+
+    reader.readAsText(file);
+  });
 };
 
-// Helper function to convert CSV to JSON (if needed in the future)
+// Helper function to convert CSV to JSON
 const csvToJson = (csv: string): any[] => {
-  // Implement CSV to JSON conversion logic here if needed
+  // Implement CSV to JSON conversion logic here
   return [];
 };
