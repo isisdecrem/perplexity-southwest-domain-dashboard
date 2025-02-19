@@ -42,7 +42,7 @@ export const Dashboard = ({ data }: DashboardProps) => {
             Total Feb Activations: {totalFebActivations}
           </div>
           <div className="text-sm text-gray-500 mt-1">
-            Last updated 2.18
+            Last updated 2.19
           </div>
         </div>
       </div>
